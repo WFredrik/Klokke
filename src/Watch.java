@@ -1,12 +1,11 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.beans.EventHandler;
-import java.text.*;
-import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-import static jdk.nashorn.internal.objects.NativeWeakSet.add;
+
 
 
 class Watch implements Runnable{
@@ -51,7 +50,7 @@ class Watch implements Runnable{
 
         GA.setSize(200, 300);
         GA.setVisible(false);
-        add(b, BorderLayout.CENTER);
+        //add(b, BorderLayout.CENTER);
 
         JMenuBar mb=new JMenuBar();
         menu=new JMenu("Meny");
@@ -90,11 +89,11 @@ class Watch implements Runnable{
 
                 Calendar cal = Calendar.getInstance();
                 hours = cal.get( Calendar.HOUR_OF_DAY );
-                if ( hours > 12 ) hours -= 12;
+                if ( hours > 24 ) hours -= 24;
                 minutes = cal.get( Calendar.MINUTE );
                 seconds = cal.get( Calendar.SECOND );
 
-                SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");
+                SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 Date date = cal.getTime();
                 timeString = formatter.format( date );
 
