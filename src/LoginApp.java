@@ -6,7 +6,7 @@ import java.lang.Exception;
 
 class CreateLoginForm extends JFrame implements ActionListener
 {
-
+    JFrame errorBox;
     JButton b1;
     JPanel newPanel;
     JLabel userLabel, passLabel;
@@ -15,7 +15,7 @@ class CreateLoginForm extends JFrame implements ActionListener
 
     CreateLoginForm()
     {
-
+        errorBox = new JFrame();
         userLabel = new JLabel();
         userLabel.setText("Username");
 
@@ -26,7 +26,7 @@ class CreateLoginForm extends JFrame implements ActionListener
 
         textField2 = new JPasswordField(15);
 
-        b1 = new JButton("SUBMIT");
+        b1 = new JButton("Log in");
 
         newPanel = new JPanel(new GridLayout(3, 1));
         newPanel.add(userLabel);
@@ -38,7 +38,7 @@ class CreateLoginForm extends JFrame implements ActionListener
         add(newPanel, BorderLayout.CENTER);
 
         b1.addActionListener(this);
-        setTitle("LOGIN FORM");
+        setTitle("Forekomst Programmet");
     }
 
     public void actionPerformed(ActionEvent ae)
@@ -56,14 +56,16 @@ class CreateLoginForm extends JFrame implements ActionListener
             page.getContentPane().add(wel_label);
         }
         else{
+            errorBox.setSize(200,300);
+            JOptionPane.showMessageDialog(errorBox, "Feil passord eller brukernavn");
 
-            System.out.println("Skriv inn ett gyldig passord og brukernavn");
+
         }
     }
 }
 class LoginFormDemo
 {
-    public static void main(String arg[])
+    public static void main(String args[])
     {
         try
         {

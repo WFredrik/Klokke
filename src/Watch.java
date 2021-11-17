@@ -6,6 +6,8 @@ import java.text.*;
 import java.util.*;
 import java.util.List;
 
+import static jdk.nashorn.internal.objects.NativeWeakSet.add;
+
 
 class Watch implements Runnable{
     public boolean setVisable;
@@ -49,6 +51,7 @@ class Watch implements Runnable{
 
         GA.setSize(200, 300);
         GA.setVisible(false);
+        add(b, BorderLayout.CENTER);
 
         JMenuBar mb=new JMenuBar();
         menu=new JMenu("Meny");
