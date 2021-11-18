@@ -7,46 +7,46 @@ import java.util.List;
 
 
 class Watch implements Runnable {
-    JFrame f;
-    JFrame GA;
-    Thread t;
+    JFrame mainWindow;
+    JFrame creditsWindow;
+    Thread threadOne;
     int hours = 0, minutes = 0, seconds = 0;
     String timeString = "";
-    JButton b;
-    JButton g;
-    JButton k;
+    JButton watchWindow;
+    JButton closeButton;
+    JButton creditsButton;
     JMenu menu;
     JMenuItem i1, i2, i3, i4, i5;
 
     Watch() {
-        f = new JFrame();
-        GA = new JFrame();
+        mainWindow = new JFrame();
+        creditsWindow = new JFrame();
 
-        k = new JButton();
-        k.setBounds(100, 50, 100, 50);
-        k.setText("Credits");
-        k.addActionListener(this::buttonListen2);
+        creditsButton = new JButton();
+        creditsButton.setBounds(70, 50, 100, 50);
+        creditsButton.setText("Credits");
+        creditsButton.addActionListener(this::buttonListen2);
 
-        g = new JButton();
-        g.setBounds(100, 150, 100, 50);
-        g.setText("Close window");
-        g.addActionListener(this::buttonListen);
+        closeButton = new JButton();
+        closeButton.setBounds(70, 150, 100, 50);
+        closeButton.setText("Close window");
+        closeButton.addActionListener(this::buttonListen);
 
-        t = new Thread(this);
-        t.start();
+        threadOne = new Thread(this);
+        threadOne.start();
 
-        b = new JButton();
-        b.setBounds(100, 100, 100, 50);
+        watchWindow = new JButton();
+        watchWindow.setBounds(70, 100, 100, 50);
 
-        f.add(b);
-        f.add(k);
-        f.add(g);
-        f.setSize(300, 400);
-        f.setLayout(null);
-        f.setVisible(true);
+        mainWindow.add(watchWindow);
+        mainWindow.add(creditsButton);
+        mainWindow.add(closeButton);
+        mainWindow.setSize(250, 300);
+        mainWindow.setLayout(null);
+        mainWindow.setVisible(true);
 
-        GA.setSize(200, 300);
-        GA.setVisible(false);
+        creditsWindow.setSize(200, 300);
+        creditsWindow.setVisible(false);
         //add(b, BorderLayout.CENTER);
 
         JMenuBar mb = new JMenuBar();
@@ -62,17 +62,17 @@ class Watch implements Runnable {
         menu.add(i4);
         menu.add(i5);
         mb.add(menu);
-        f.setJMenuBar(mb);
-        f.setSize(400, 400);
-        f.setLayout(null);
-        f.setVisible(true);
+        mainWindow.setJMenuBar(mb);
+        mainWindow.setSize(230, 300);
+        mainWindow.setLayout(null);
+        mainWindow.setVisible(true);
 
 
     }
 
     private void buttonListen2(ActionEvent actionEvent) {
         ImageIcon icon = new ImageIcon("images//olga.png");
-        JOptionPane.showMessageDialog(GA, "Laget av de flotte gutta fra Backend", "Credits", JOptionPane.INFORMATION_MESSAGE, icon);
+        JOptionPane.showMessageDialog(creditsWindow, "Laget av de flotte gutta fra Backend", "Credits", JOptionPane.INFORMATION_MESSAGE, icon);
 
     }
 
@@ -103,7 +103,7 @@ class Watch implements Runnable {
     }
 
     public void printTime() {
-        b.setText(timeString);
+        watchWindow.setText(timeString);
     }
 
     public List getContentPane() {

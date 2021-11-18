@@ -5,36 +5,37 @@ import java.awt.event.*;
 
 class CreateLoginForm extends JFrame implements ActionListener {
     JFrame errorBox;
-    JButton b1;
+    JButton loginButton;
     JPanel newPanel;
     JLabel userLabel, passLabel;
     final JTextField textField1, textField2;
 
 
     CreateLoginForm() {
-        errorBox = new JFrame();
-        userLabel = new JLabel();
-        userLabel.setText("Username");
 
         textField1 = new JTextField(15);
+        textField2 = new JPasswordField(15);
+
+        userLabel = new JLabel();
+        userLabel.setText("Username");
 
         passLabel = new JLabel();
         passLabel.setText("Password");
 
-        textField2 = new JPasswordField(15);
 
-        b1 = new JButton("Log in");
+        loginButton = new JButton("Log in");
+        errorBox = new JFrame();
 
         newPanel = new JPanel(new GridLayout(3, 1));
         newPanel.add(userLabel);
         newPanel.add(textField1);
         newPanel.add(passLabel);
         newPanel.add(textField2);
-        newPanel.add(b1);
+        newPanel.add(loginButton);
 
         add(newPanel, BorderLayout.CENTER);
 
-        b1.addActionListener(this);
+        loginButton.addActionListener(this);
         setTitle("Forekomst Programmet");
     }
 
@@ -47,6 +48,7 @@ class CreateLoginForm extends JFrame implements ActionListener {
             Watch page = new Watch();
 
             page.setVisible();
+            loginButton.setEnabled(false);
 
             JLabel wel_label = new JLabel("Velkommen: " + userValue);
             page.getContentPane().add(wel_label);
