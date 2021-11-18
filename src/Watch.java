@@ -29,7 +29,7 @@ class Watch implements Runnable {
 
         closeButton = new JButton();
         closeButton.setBounds(70, 150, 100, 50);
-        closeButton.setText("Close window");
+        closeButton.setText("Close Window");
         closeButton.addActionListener(this::buttonListen);
 
         threadOne = new Thread(this);
