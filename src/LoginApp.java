@@ -1,20 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.Exception;
 
 
-class CreateLoginForm extends JFrame implements ActionListener
-{
+class CreateLoginForm extends JFrame implements ActionListener {
     JFrame errorBox;
     JButton b1;
     JPanel newPanel;
     JLabel userLabel, passLabel;
-    final JTextField  textField1, textField2;
+    final JTextField textField1, textField2;
 
 
-    CreateLoginForm()
-    {
+    CreateLoginForm() {
         errorBox = new JFrame();
         userLabel = new JLabel();
         userLabel.setText("Username");
@@ -41,8 +38,7 @@ class CreateLoginForm extends JFrame implements ActionListener
         setTitle("Forekomst Programmet");
     }
 
-    public void actionPerformed(ActionEvent ae)
-    {
+    public void actionPerformed(ActionEvent ae) {
         String userValue = textField1.getText();
         String passValue = textField2.getText();
 
@@ -50,32 +46,15 @@ class CreateLoginForm extends JFrame implements ActionListener
 
             Watch page = new Watch();
 
-            page.setVisible(true);
+            page.setVisible();
 
-            JLabel wel_label = new JLabel("Velkommen: "+userValue);
+            JLabel wel_label = new JLabel("Velkommen: " + userValue);
             page.getContentPane().add(wel_label);
-        }
-        else{
-            errorBox.setSize(200,300);
+        } else {
+            errorBox.setSize(200, 300);
             JOptionPane.showMessageDialog(errorBox, "Feil passord eller brukernavn");
 
 
-        }
-    }
-}
-class LoginFormDemo
-{
-    public static void main(String args[])
-    {
-        try
-        {
-            CreateLoginForm form = new CreateLoginForm();
-            form.setSize(250,130);
-            form.setVisible(true);
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 }
