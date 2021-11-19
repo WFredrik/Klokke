@@ -48,7 +48,6 @@ class CreateLoginForm extends JFrame implements ActionListener {
             Watch page = new Watch();
 
             page.setVisible();
-            loginButton.setEnabled(false); // Gjør slik at login button kun kan klikkes 1 gang.
             setVisible(false); // skjuler CreateLoginForm
 
             JLabel wel_label = new JLabel("Velkommen: " + userValue);
