@@ -9,7 +9,7 @@ class CreateLoginForm extends JFrame implements ActionListener {
     JPanel newPanel;
     JLabel userLabel, passLabel;
     final JTextField textField1, textField2;
-
+    JRadioButton rememberMe;
 
     CreateLoginForm() {
 
@@ -25,6 +25,7 @@ class CreateLoginForm extends JFrame implements ActionListener {
 
         loginButton = new JButton("Log in");
         errorBox = new JFrame();
+        rememberMe = new JRadioButton("Remember me");
 
         newPanel = new JPanel(new GridLayout(3, 1));
         newPanel.add(userLabel);
@@ -32,6 +33,7 @@ class CreateLoginForm extends JFrame implements ActionListener {
         newPanel.add(passLabel);
         newPanel.add(textField2);
         newPanel.add(loginButton);
+        newPanel.add(rememberMe);
 
         add(newPanel, BorderLayout.CENTER);
 
