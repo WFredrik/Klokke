@@ -9,12 +9,16 @@ import java.util.List;
 class Watch implements Runnable {
     JFrame mainWindow;
     JFrame creditsWindow;
+
     Thread threadOne;
     int hours = 0, minutes = 0, seconds = 0;
     String timeString = "";
+
     JButton watchWindow;
     JButton closeButton;
     JButton creditsButton;
+    JButton clickerButton;
+
     JMenu menu;
     JMenuItem i1, i2, i3, i4, i5;
 
@@ -28,9 +32,15 @@ class Watch implements Runnable {
         creditsButton.addActionListener(this::buttonListen2);
 
         closeButton = new JButton();
-        closeButton.setBounds(70, 150, 100, 50);
+        closeButton.setBounds(70, 200, 100, 50);
         closeButton.setText("Close Window");
         closeButton.addActionListener(this::buttonListen);
+
+        clickerButton = new JButton();
+        clickerButton.setBounds(70,150,100,50);
+        clickerButton.setText("Clicker");
+        clickerButton.addActionListener(this::buttonListen3);
+
 
         threadOne = new Thread(this);
         threadOne.start();
@@ -41,13 +51,15 @@ class Watch implements Runnable {
         mainWindow.add(watchWindow);
         mainWindow.add(creditsButton);
         mainWindow.add(closeButton);
-        mainWindow.setSize(250, 300);
+        mainWindow.add(clickerButton);
+        mainWindow.setSize(250, 350);
         mainWindow.setLayout(null);
         mainWindow.setVisible(true);
 
         creditsWindow.setSize(200, 300);
         creditsWindow.setVisible(false);
         //add(b, BorderLayout.CENTER);
+
 
         JMenuBar mb = new JMenuBar();
         menu = new JMenu("Meny");
@@ -78,6 +90,11 @@ class Watch implements Runnable {
 
     private void buttonListen(ActionEvent actionEvent) {
         System.exit(0);
+    }
+    private void buttonListen3(ActionEvent actionEvent) {
+        new Clicker();
+
+
     }
 
 
