@@ -22,8 +22,10 @@ class Watch implements Runnable {
     JMenu menu;
     JMenuItem i1, i2, i3, i4, i5;
 
+
     Watch() {
         mainWindow = new JFrame();
+        mainWindow.setLocation(595,350);
         creditsWindow = new JFrame();
 
         creditsButton = new JButton();
@@ -78,6 +80,7 @@ class Watch implements Runnable {
         mainWindow.setSize(230, 300);
         mainWindow.setLayout(null);
         mainWindow.setVisible(true);
+
 
 
     }

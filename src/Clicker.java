@@ -11,8 +11,8 @@ public class Clicker extends JFrame implements ActionListener {
         clickButton = new JButton("Click!");
         resetButton = new JButton("Reset");
         counterText = new JTextField();
-
         clickWindow = new JFrame("Clicker");
+        clickWindow.setLocation(595,350);
         clickWindow.add(clickButton);
         clickWindow.add(resetButton);
         clickWindow.add(counterText);

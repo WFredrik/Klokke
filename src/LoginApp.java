@@ -35,6 +35,7 @@ class CreateLoginForm extends JFrame implements ActionListener, KeyListener {
         textField2.addKeyListener(this);
         loginButton.addKeyListener(this);
         loginButton.addActionListener(this);
+        setLocation(595,350);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
